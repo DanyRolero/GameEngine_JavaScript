@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+}
+
+#canvasID {
+    display: block;
+    margin: auto;
+    width: 35%;
+    border: 1px solid gray;
+}
