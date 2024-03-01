@@ -9,7 +9,8 @@ class Scene {
     // Acciones que se producen cuando se carga la escena
     // Aquí van los valores que re reestableceran cada vez que se cargue la escena
     // Se instancian GObjects y se añaden a gobjects
-    onLoad(){}
+    // Generalmente llamará a la game.play() al final.
+    onLoad(){ game.play();}
 
     // Acciones de actualizado en cada frame
     update(){

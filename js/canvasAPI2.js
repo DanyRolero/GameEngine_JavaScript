@@ -202,8 +202,6 @@ var canvasAPI = function (strCanvasId) {
             if (imgTotal == imgIndex) imgCallback();
             console.log('Imagen cargada');
         }
-
-
         return img;
     }
 

@@ -1,5 +1,4 @@
 class Game {
-    scenes = [];
     initialScene;
     currentScene;
     requestAnimationID;
@@ -10,7 +9,7 @@ class Game {
         this.initialScene = initialScene;
         this.currentScene = initialScene;
         this.currentScene.onLoad();
-        this.play();
+        //this.play();
     }
 
     //---------------------------------------------------------------------------------------------------
@@ -19,7 +18,7 @@ class Game {
         this.currentScene.onChange();
         this.currentScene = scene;
         this.currentScene.onLoad();
-        this.play();
+        //this.play();
     }
 
     //---------------------------------------------------------------------------------------------------
