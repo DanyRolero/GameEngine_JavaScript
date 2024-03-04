@@ -1,8 +1,8 @@
 let canvasAPI = function (canvasID) {
 
     // Variables del canvas  
-    let canvas = document.getElementById(canvasID);
-    let context = canvas.getContext("2d");
+    const canvas = document.getElementById(canvasID);
+    const context = canvas.getContext("2d");
 
     // Variables para cargar imágenes  
     let imgTotal = 0;
@@ -108,8 +108,23 @@ let canvasAPI = function (canvasID) {
     //----------------------------------------------------------------------------------------------------
     /// Crear rectangulo relleno
     function fillRect(data) {
+        context.beginPath();
         context.fillStyle = data.color;
         context.fillRect(data.x, data.y, data.width, data.height);
+        context.closePath();
+
+
+    }
+
+    //----------------------------------------------------------------------------------------------------
+    /// Crear contorno
+    function strokeRect(data) {
+        context.lineJoin = data.lineJoin;
+        context.lineWidth = data.lineWidth;
+        context.strokeStyle = data.color;
+        context.beginPath();
+        context.strokeRect(data.x, data.y, data.width, data.height);
+        context.closePath();
     }
 
 
@@ -319,6 +334,7 @@ let canvasAPI = function (canvasID) {
         text: text,
         fillText: fillText,
         fillRect: fillRect,
+        strokeRect: strokeRect,
         btn: btn,
         fillBtn: fillBtn,
         fullBtn: fullBtn,

@@ -22,7 +22,7 @@ class ImageLoader {
     //---------------------------------------------------------------------
     streamLoadImage(url) {
         game.pause();
-        this.loadImage(url, game.play);
+        this.loadImage(url, game.play.bind(game));
     }
 
     //---------------------------------------------------------------------
