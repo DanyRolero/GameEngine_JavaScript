@@ -15,5 +15,7 @@ class SquareShip extends GObject{
         graphics.fillRect({x: this.x, y: this.y, width: this.width, height: this.height, color: 'green'});
     }
 
+ 
+    
 
 }

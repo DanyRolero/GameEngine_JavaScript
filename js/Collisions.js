@@ -5,8 +5,11 @@ class Collisions {
     right(obj) { return obj.x + obj.width; }
     bottom(obj) { return obj.y + obj.height }
     left(obj) { return obj.x; }
+    xCenter(obj) { return obj.x + (obj.width >> 1) }
+    yCenter(obj) { return obj.y + (obj.height >> 1) }
 
     //----------------------------------------------------------------------------------------------------
+    // Usar con formas rectangulares con objetos que no van a rotar
     rectCollision(obj1, obj2) {
         return !(this.right(obj1) < this.left(obj2) 
         && this.left(obj1) > this.right(obj2) 
@@ -15,6 +18,8 @@ class Collisions {
     }
 
     //----------------------------------------------------------------------------------------------------
+    // Usar con formás circulares para objetos que van a rotar
+    // Usar con formas elípticas con objetos que NO van a rotar
     elypseCollision(obj1, obj2) {
         if(!collision(obj1,obj2)) return false;
 
@@ -39,8 +44,13 @@ class Collisions {
     }
 
     //----------------------------------------------------------------------------------------------------
+    // Renombrar apropiadamente
+    // Verificar colisiones entre 2 rectangulos rotados
     lineProjectionCollision(obj1, obj2) {
 
     }
 
+
+
+    // Verificar colisiones entre dos polígonos
 }

@@ -127,6 +127,33 @@ let canvasAPI = function (canvasID) {
         context.closePath();
     }
 
+    //Crear polígono (relleno)
+    function fillPoly(data) {
+        this.x = data.x;
+        this.y = data.y;
+        this.color = data.color;
+        this.width = data.width;
+        this.height = data.height
+        this.vertex = data.vertex;
+
+        var x = this.x + this.vertex[0].x;
+        var y = this.y + this.vertex[0].y;
+        context.beginPath();
+        context.moveTo(x, y);
+
+        for (let i = 1; i < this.vertex.length; i++) {
+            x += this.vertex[i].x;
+            y += this.vertex[i].y;
+            context.lineTo(x, y);
+        }
+
+        context.fillStyle = this.color;
+        context.fill();
+        context.closePath();
+
+    }
+    
+
 
     //----------------------------------------------------------------------------------------------------
     function load(name, url, callback) {
@@ -335,6 +362,7 @@ let canvasAPI = function (canvasID) {
         fillText: fillText,
         fillRect: fillRect,
         strokeRect: strokeRect,
+        fillPoly: fillPoly,
         btn: btn,
         fillBtn: fillBtn,
         fullBtn: fullBtn,

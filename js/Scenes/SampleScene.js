@@ -3,7 +3,7 @@ class SampleScene extends Scene {
 
     onLoad() {
         this.gobjects.push(new SquareShip(275, 550, 50, 50));
-        this.gobjects.push(new GOTime());
+        //this.gobjects.push(new GOTime());
 
         let imgLoader = new ImageLoader();  
         this.images['img1'] = imgLoader.loadImage('./img/sample1.png');
