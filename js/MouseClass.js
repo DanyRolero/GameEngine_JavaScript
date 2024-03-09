@@ -1,4 +1,4 @@
-class MouseClass {
+export default class MouseClass {
     
     //-----------------------------------------------------------------------------------------
     constructor(canvasID) {

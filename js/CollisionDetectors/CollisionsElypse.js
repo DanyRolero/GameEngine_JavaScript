@@ -1,4 +1,4 @@
-class Collisions {
+class CollisionsElypse {
 
     //----------------------------------------------------------------------------------------------------
     top(obj) { return obj.y; }
@@ -20,7 +20,7 @@ class Collisions {
     //----------------------------------------------------------------------------------------------------
     // Usar con formás circulares para objetos que van a rotar
     // Usar con formas elípticas con objetos que NO van a rotar
-    elypseCollision(obj1, obj2) {
+    isCollision(obj1, obj2) {
         if(!collision(obj1,obj2)) return false;
 
         // Obj1
@@ -42,15 +42,4 @@ class Collisions {
 
         return (hyp < Math.min(rw, rh));
     }
-
-    //----------------------------------------------------------------------------------------------------
-    // Renombrar apropiadamente
-    // Verificar colisiones entre 2 rectangulos rotados
-    lineProjectionCollision(obj1, obj2) {
-
-    }
-
-
-
-    // Verificar colisiones entre dos polígonos
 }

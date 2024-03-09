@@ -1,4 +1,4 @@
-class ImageLoader {
+export default class ImageLoader {
     constructor() {
         this.imgIndex = 0;
         this.totalImages = 0;
@@ -6,6 +6,7 @@ class ImageLoader {
 
     loaded = function(callback) {
         this.imgIndex++;
+        if(!callback) return;
         if(this.imgIndex == this.totalImages && callback) callback();
     }
     

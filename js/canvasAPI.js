@@ -1,4 +1,4 @@
-let canvasAPI = function (canvasID) {
+export let canvasAPI = function (canvasID) {
 
     // Variables del canvas  
     const canvas = document.getElementById(canvasID);
@@ -21,11 +21,11 @@ let canvasAPI = function (canvasID) {
     }
 
     //----------------------------------------------------------------------------------------------------
-    function rotate(obj, radians) { 
+    function rotate(obj, deg) { 
         let x = obj.x + (obj.width >> 1);
         let y = obj.y + (obj.height >> 1);
         context.translate(x,y);
-        context.rotate(radians);
+        context.rotate(this.radians(deg));
         context.translate(-x,-y);
     }
 
@@ -117,6 +117,19 @@ let canvasAPI = function (canvasID) {
     }
 
     //----------------------------------------------------------------------------------------------------
+    /// Dibujar linea 
+    function line(data) {
+        context.beginPath();
+        context.lineWidth = data.lineWidth || 1;
+        context.lineCap = data.lineCap || 'butt';   //butt  square  round
+        context.strokeStyle = data.color || 'white';
+        context.moveTo(data.x1, data.y1);
+        context.lineTo(data.x2, data.y2);
+        context.stroke();
+        context.closePath();
+    }
+
+    //----------------------------------------------------------------------------------------------------
     /// Crear contorno
     function strokeRect(data) {
         context.lineJoin = data.lineJoin;
@@ -127,6 +140,23 @@ let canvasAPI = function (canvasID) {
         context.closePath();
     }
 
+    //----------------------------------------------------------------------------------------------------
+    /// circulo
+    function fillCircle (data) {
+        this.x = data.x;
+        this.y = data.y;
+        this.color = data.color;
+        this.radius = data.radius;
+        this.width = data.radius << 1;
+        this.height = this.width;
+        context.fillStyle = this.color;
+        context.beginPath();
+        context.arc(this.x + this.radius, this.y + this.radius, this.radius, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+    }
+
+    //----------------------------------------------------------------------------------------------------
     //Crear polígono (relleno)
     function fillPoly(data) {
         this.x = data.x;
@@ -196,7 +226,7 @@ let canvasAPI = function (canvasID) {
         let y = data.y || canvas.height >> 1;
         let width = data.width || undefined;
         
-        context.strokeStyle = data.color || 'white';
+        context.fillStyle = data.color || 'white';
         context.textAlign = data.align || 'center';
         context.font = (data.size || "60px") + ' ' + (data.font || 'Arial');
         context.fillText(text, x, y, width);        
@@ -360,8 +390,10 @@ let canvasAPI = function (canvasID) {
         img: img,
         text: text,
         fillText: fillText,
+        line: line,
         fillRect: fillRect,
         strokeRect: strokeRect,
+        fillCircle: fillCircle,
         fillPoly: fillPoly,
         btn: btn,
         fillBtn: fillBtn,

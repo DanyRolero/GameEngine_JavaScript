@@ -1,4 +1,4 @@
-class Time {
+export default class Time {
     fps = 0;
     cicle = 0;
     time = performance.now();

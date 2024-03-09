@@ -1,4 +1,4 @@
-class GObject {
+export default class GObject {
     constructor(x = 0, y = 0, width = 1, height = 1, angle = 0) {
         this.x = x;
         this.y = y;

@@ -1,4 +1,4 @@
-class KeyboardClass {
+export default class KeyboardClass {
 
     //-----------------------------------------------------------------------------------------
     //Inicializa los eventos de teclado
