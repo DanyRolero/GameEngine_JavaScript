@@ -1,11 +1,11 @@
-import Scene from "../AbstractScene.js";
+import Scene from "./AbstractScene.js";
 import GOTime from "../GObjects/GOTime.js";
 import SquareShip from "../GObjects/SquareShip.js";
 import GOSquare from "../GObjects/GOSquare.js";
-import { game, keyboard, graphics, collisionRect } from "../main.js";
+import { game, keyboard, graphics, collision } from "../main.js";
 import Rect from "../CollisionDetectors/Utils/Rect.js";
 
-
+// Escena para testear Colisiones entre rectangulos rotados
 export default class SampleScene extends Scene {
     //images = [];
     gobjects = [];
@@ -13,7 +13,7 @@ export default class SampleScene extends Scene {
 
     onLoad() {
         this.gobjects.push(new SquareShip(275, 550, 350, 20, 0));
-        this.gobjects.push(new GOSquare(250, 100, 50 , 50, 0));
+        this.gobjects.push(new GOSquare(250, 100, 50 , 50, 40));
         this.gobjects.push(new GOTime());
         game.play();
     }

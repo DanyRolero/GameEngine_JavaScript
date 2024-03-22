@@ -1,4 +1,4 @@
-import GObject from "../GObject.js";
+import GObject from "./GObject.js";
 import { graphics } from "../main.js";
 import Vector from "../CollisionDetectors/Utils/Vector.js";
 

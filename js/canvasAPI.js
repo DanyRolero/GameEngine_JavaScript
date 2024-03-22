@@ -123,6 +123,7 @@ export let canvasAPI = function (canvasID) {
         context.lineWidth = data.lineWidth || 1;
         context.lineCap = data.lineCap || 'butt';   //butt  square  round
         context.strokeStyle = data.color || 'white';
+        context.setLineDash(data.lineDash || []);
         context.moveTo(data.x1, data.y1);
         context.lineTo(data.x2, data.y2);
         context.stroke();
@@ -145,13 +146,28 @@ export let canvasAPI = function (canvasID) {
     function fillCircle (data) {
         this.x = data.x;
         this.y = data.y;
-        this.color = data.color;
+        this.color = data.color || 'white';
         this.radius = data.radius;
         this.width = data.radius << 1;
         this.height = this.width;
         context.fillStyle = this.color;
         context.beginPath();
         context.arc(this.x + this.radius, this.y + this.radius, this.radius, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+    }
+
+    //----------------------------------------------------------------------------------------------------
+    /// Elipse
+    function fillEllipse (data) {
+        this.x = data.x;
+        this.y = data.y;
+        this.color = data.color;
+        this.width = data.width;
+        this.height = data.height;
+        context.fillStyle = this.color;
+        context.beginPath();
+        context.ellipse(this.x + this.width/2, this.y + this.height/2, this.width/2, this.height/2, 0, 0, 2 * Math.PI);
         context.fill();
         context.closePath();
     }
@@ -394,6 +410,7 @@ export let canvasAPI = function (canvasID) {
         fillRect: fillRect,
         strokeRect: strokeRect,
         fillCircle: fillCircle,
+        fillEllipse: fillEllipse,
         fillPoly: fillPoly,
         btn: btn,
         fillBtn: fillBtn,

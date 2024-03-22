@@ -1,4 +1,4 @@
-import GObject from "../GObject.js";
+import GObject from "./GObject.js";
 import { graphics } from "../main.js";
 import { time } from "../main.js";
 

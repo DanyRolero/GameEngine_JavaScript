@@ -1,4 +1,4 @@
-import GObject from "../GObject.js";
+import GObject from "./GObject.js";
 import { graphics } from "../main.js";
 
 export default class GOSquare extends GObject {

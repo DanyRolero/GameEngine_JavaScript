@@ -1,7 +1,23 @@
 import Rect from "./Utils/Rect.js";
 
 export default class CollisionsRotatedRect {
+
+    //----------------------------------------------------------------------------------------------------
+    top(obj) { return obj.y; }
+    right(obj) { return obj.x + obj.width; }
+    bottom(obj) { return obj.y + obj.height }
+    left(obj) { return obj.x; }
+
+    //----------------------------------------------------------------------------------------------------
+    // Verificar previamente que los objetos no puedan estar colisionando por estar alineado vertical u horizontalmente
+    checkPossibleCollision(obj1, obj2) {
+        return  !((this.right(obj1) < this.left(obj2) || this.left(obj1) > this.right(obj2)) && 
+                 (this.bottom(obj1) < this.top(obj2) || this.top(obj1) > this.bottom(obj2)));
+    }
+
+    //----------------------------------------------------------------------------------------------------
     isCollision(gobjectA, gobjectB) {
+        if(!this.checkPossibleCollision(gobjectA, gobjectB)) return;
         return this.isRectCollide(new Rect(gobjectA), new Rect(gobjectB));
     }
 

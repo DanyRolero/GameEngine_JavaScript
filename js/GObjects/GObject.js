@@ -1,10 +1,11 @@
 export default class GObject {
-    constructor(x = 0, y = 0, width = 1, height = 1, angle = 0) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.angle = angle;
+    constructor(data) {
+        this.x = data.x || 0;
+        this.y = data.y || 0;
+        this.width = data.width || 1;
+        this.height = data.height || 1;
+        this.angle = data.angle || 0;
+        this.scene = data.scene || null;
     }
 
     //onLoad() {}
@@ -18,4 +19,5 @@ export default class GObject {
     draw() {} 
 
     // onDestroy(){}
+
 }
